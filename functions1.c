@@ -33,7 +33,7 @@ int print_unsigned(va_list types, char buffer[],
 
 	i++;
 
-	return (write unsgnd(0, i , buffer, flags, width, precision, size));
+	return (write unsgnd(0, i, buffer, flags, width, precision, size));
 }
 
 /************* PRINT UNSIGNED NUMBER IN OCTAL  ****************/
@@ -48,8 +48,8 @@ int print_unsigned(va_list types, char buffer[],
  *
  * Return: Number of chars printed
  */
-int print_octal(va_list types, char buffer[],int flags,
-		int width, int precision, int size)
+int print_octal(va_list types, char buffer[], int flags,
+	int width, int precision, int size)
 {
 	int i = BUFF_SIZE - 2;
 	unsigned long int num = va_arg(types, unsigned long int);
@@ -112,8 +112,8 @@ int print_hexadecimal(va_list types, char buffer[], int flags,
 int print_hexa_upper(va_list types, char buffer[], int flags,
 		int width, int precision, int size)
 {
-	return (print_hexa(types, "0123456789ABCDEF", buffer,flags, 'X',
-				width, precision, size));
+	return (print_hexa(types, "0123456789ABCDEF", buffer, flags, 'X',
+			width, precision, size));
 }
 
 /************** PRINT HEXX NUM IN LOWER OR UPPER **************/

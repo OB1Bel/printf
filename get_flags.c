@@ -38,7 +38,3 @@ int get_flags(const char *format, int *i)
 
 	return (flags);
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> 14f363292d8c4352746c89438a357dd46b198d46

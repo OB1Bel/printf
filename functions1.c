@@ -116,12 +116,12 @@ int print_hexa_upper(va_list types, char buffer[],
 /**
  * print_hexa - Prints a hexadecimal number in lower or upper
  * @types: List of arguments
- * @map_to: Array of values to map the number to
- * @buffer: Buffer array to handle print
+ * @map_to: Array of values
+ * @buffer: Buffer array
  * @flags: Calculates active flags
  * @flag_ch: Calculates active flags
  * @width: get width
- * @precision: Precision specification
+ * @precision: Precision
  * @size: Size specifier
  * @size: Size specification
  *

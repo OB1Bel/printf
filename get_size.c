@@ -5,7 +5,7 @@
  * @format: Format
  * @i: int
  *
- * Return: size
+ * Return: int
  */
 int get_size(const char *format, int *i)
 {

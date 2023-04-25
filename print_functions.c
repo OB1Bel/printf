@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * print_char - print char
- * @ap: arg pointer
- * @params: the params struct
+ * print_char - prints character
+ * @ap: argument pointer
+ * @params: the parameters struct
  *
- * Return: int
+ * Return: number chars printed
  */
 int print_char(va_list ap, params_t *params)
 {
@@ -20,11 +20,13 @@ int print_char(va_list ap, params_t *params)
 		sum += _putchar(ch);
 	return (sum);
 }
+
 /**
- * print_int - print int
- * @ap: arg pointer
- * @params: the params struct
- * Return: int
+ * print_int - prints integer
+ * @ap: argument pointer
+ * @params: the parameters struct
+ *
+ * Return: number chars printed
  */
 int print_int(va_list ap, params_t *params)
 {
@@ -40,11 +42,11 @@ int print_int(va_list ap, params_t *params)
 }
 
 /**
- * print_string - print string
- * @ap: arg
- * @params: the params
+ * print_string - prints string
+ * @ap: argument pointer
+ * @params: the parameters struct
  *
- * Return: int
+ * Return: number chars printed
  */
 int print_string(va_list ap, params_t *params)
 {
@@ -53,17 +55,18 @@ int print_string(va_list ap, params_t *params)
 
 	(void)params;
 	switch ((int)(!str))
-	case 1:
-		str = NULL_STRING;
+		case 1:
+			str = NULL_STRING;
 
 	j = pad = _strlen(str);
 	if (params->precision < pad)
 		j = pad = params->precision;
+
 	if (params->minus_flag)
 	{
 		if (params->precision != UINT_MAX)
 			for (i = 0; i < pad; i++)
-				sum  += _putchar(*str++);
+				sum += _putchar(*str++);
 		else
 			sum += _puts(str);
 	}
@@ -79,11 +82,13 @@ int print_string(va_list ap, params_t *params)
 	}
 	return (sum);
 }
+
 /**
- * print_percent - prent string
- * @ap: arg pointer
- * @params: the params struct
- * Return: int
+ * print_percent - prints string
+ * @ap: argument pointer
+ * @params: the parameters struct
+ *
+ * Return: number chars printed
  */
 int print_percent(va_list ap, params_t *params)
 {
@@ -93,10 +98,11 @@ int print_percent(va_list ap, params_t *params)
 }
 
 /**
- * print_S - custum s
- * @ap: arg pointer
- * @params: params struct
- * Return: int
+ * print_S - custom format specifier
+ * @ap: argument pointer
+ * @params: the parameters struct
+ *
+ * Return: number chars printed
  */
 int print_S(va_list ap, params_t *params)
 {
@@ -108,7 +114,7 @@ int print_S(va_list ap, params_t *params)
 		return (_puts(NULL_STRING));
 	for (; *str; str++)
 	{
-		if ((*str > 0 && *str < 32)  || *str >= 127)
+		if ((*str > 0 && *str < 32) || *str >= 127)
 		{
 			sum += _putchar('\\');
 			sum += _putchar('x');
@@ -124,3 +130,5 @@ int print_S(va_list ap, params_t *params)
 	}
 	return (sum);
 }
+
+

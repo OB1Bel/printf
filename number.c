@@ -1,11 +1,12 @@
 #include "main.h"
 
 /**
- * convert - convert function
+ * convert - converter function, a clone of itoa
  * @num: number
  * @base: base
- * @flags: arg flags
- * @params: prams struct
+ * @flags: argument flags
+ * @params: paramater struct
+ *
  * Return: string
  */
 char *convert(long int num, int base, int flags, params_t *params)
@@ -21,11 +22,13 @@ char *convert(long int num, int base, int flags, params_t *params)
 	{
 		n = -num;
 		sign = '-';
+
 	}
 	array = flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
 	ptr = &buffer[49];
 	*ptr = '\0';
-	do {
+
+	do	{
 		*--ptr = array[n % base];
 		n /= base;
 	} while (n != 0);
@@ -36,10 +39,11 @@ char *convert(long int num, int base, int flags, params_t *params)
 }
 
 /**
- * print_unsigned - print unsigned  int
- * @ap: arg pointer
- * @params: params struct
- * Return: int
+ * print_unsigned - prints unsigned integer numbers
+ * @ap: argument pointer
+ * @params: the parameters struct
+ *
+ * Return: bytes printed
  */
 int print_unsigned(va_list ap, params_t *params)
 {
@@ -55,11 +59,14 @@ int print_unsigned(va_list ap, params_t *params)
 	return (print_number(convert(l, 10, CONVERT_UNSIGNED, params), params));
 }
 
+
+
 /**
- * print_address - print address
- * @ap: arg p
- * @params: params struct
- * Return: int
+ * print_address - prints address
+ * @ap: argument pointer
+ * @params: the parameters struct
+ *
+ * Return: bytes printed
  */
 int print_address(va_list ap, params_t *params)
 {
@@ -74,3 +81,4 @@ int print_address(va_list ap, params_t *params)
 	*--str = '0';
 	return (print_number(str, params));
 }
+

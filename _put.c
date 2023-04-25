@@ -22,10 +22,10 @@ int _puts(char *str)
  *
  * Return: 1 success -1 error
  */
-int _putchar(int c)
+int _putchar(char c)
 {
 	static int i;
-	static char buf[OUTPUT_BUf_SIZE];
+	static char buf[OUTPUT_BUF_SIZE];
 
 	if (c == BUF_FLUSH || i >= OUTPUT_BUF_SIZE)
 	{

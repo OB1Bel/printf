@@ -1,11 +1,12 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef _PRINTF_H
+#define _PRINTF_H
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
 #include <stdarg.h>
+#include <limits.h>
 
 #define OUTPUT_BUF_SIZE 1024
 #define BUF_FLUSH -1
@@ -15,8 +16,8 @@
 
 #define PARAMS_INIT {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 
-#define CONVERT_LOWERCASE 1
-#define CONVET_UNSIGNED 2
+#define CONVERT_LOWERCASE	1
+#define CONVERT_UNSIGNED	2
 
 /**
  * struct parameters - parametrs struct
@@ -29,6 +30,7 @@
  * @precision: var
  * @h_modifier: var
  * @l_modifier: var
+ * @zero_flag: var
  */
 typedef struct parameters
 {
@@ -37,10 +39,11 @@ typedef struct parameters
 	unsigned int space_flag		: 1;
 	unsigned int hashtag_flag	: 1;
 	unsigned int minus_flag		: 1;
-	unsigned int width		: 1;
-	unsigned int precision		: 1;
+	unsigned int width;
+	unsigned int precision;
 	unsigned int h_modifier		: 1;
 	unsigned int l_modifier		: 1;
+	unsigned int zero_flag		: 1;
 } params_t;
 
 /**
